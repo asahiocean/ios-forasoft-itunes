@@ -16,7 +16,8 @@ struct API: GETPOST {
                 let nsdata = NSData(data: newData)
                 cache.setObject(nsdata, forKey: url as NSURL)
                 data = newData
-            } catch {
+            } catch let error as NSError {
+                print(error.localizedDescription)
                 // Indicators.network.dc()
             }
         }
